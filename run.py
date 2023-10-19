@@ -7,7 +7,10 @@ with open("data", "r") as f:
     data = json.load(f)
 
 current_level = data["current_level"]
-
+if data["mode"] == "node":
+    data["compiled"] = False
+    with open("data", "w") as f:
+        json.dump(data, f)
 
 files = os.listdir(f"level_{current_level}/files")
 for i, file in enumerate(files):

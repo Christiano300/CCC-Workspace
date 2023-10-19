@@ -23,4 +23,7 @@ for i in range(levels):
     elif mode == "rust":
         with open(f"level_{i + 1}/level_{i + 1}.rs", "w") as f, open("level_x.rs.template") as t:
             f.write(t.read())
+    
+    else:
+        raise Exception("Invalid mode: " + mode)
         
