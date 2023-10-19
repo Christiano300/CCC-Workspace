@@ -5,6 +5,10 @@ with open("data", "r") as f:
     data = json.load(f)
 
 current_level = data["current_level"]
+if data["mode"] == "node":
+    data["compiled"] = False
+    with open("data", "w") as f:
+        json.dump(data, f)
 
 with open(f"level_{current_level}/files/level{current_level}_example.out") as correct:
     correct = correct.read()
