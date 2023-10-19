@@ -28,7 +28,7 @@ def execute(mode: str, current_level: int, is_example: bool) -> str:
     elif mode == "rust":
         shutil.copy(f"level_{current_level}/level_{current_level}.rs", "src/main.rs")
         os.system(f"cargo run -- level_{current_level}/files/level{current_level}{'_example' if is_example else ''}.in' out")
-        os.remove("main.rs")
+        os.remove("src/main.rs")
         with open("src/out") as f:
             text = f.read()
         os.remove("src/out")
