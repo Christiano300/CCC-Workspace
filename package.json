@@ -1,0 +1,1 @@
+{"name": "ccc-workspace", "version": "1.0.0", "description": "", "main": "level_1/level_1.js", "scripts": {"test": "echo \"Error: no test specified\" && exit 1"}, "author": "", "license": "ISC", "devDependencies": {"@types/node": "^20.8.7"}}

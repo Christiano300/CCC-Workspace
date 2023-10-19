@@ -1,0 +1,12 @@
+use std::env;
+use std::fs;
+
+pub fn main() {
+    let args: Vec<String> = env::args().collect();
+    fs::read_to_string(&args[1])
+        .expect("Something went wrong reading the file")
+        .lines()
+    
+    fs::write(&args[2], "25\n")
+        .expect("Unable to write file");
+}

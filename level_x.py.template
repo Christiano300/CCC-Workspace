@@ -1,0 +1,6 @@
+from io import TextIOWrapper
+
+def solve(file: TextIOWrapper, out: TextIOWrapper):
+    file.read()
+    
+    out.write("")
