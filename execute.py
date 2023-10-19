@@ -26,12 +26,12 @@ def execute(mode: str, current_level: int, is_example: bool) -> str:
         return text
 
     elif mode == "rust":
-        shutil.copy(f"level_{current_level}/level_{current_level}.rs", "main.rs")
+        shutil.copy(f"level_{current_level}/level_{current_level}.rs", "src/main.rs")
         os.system(f"cargo run -- level_{current_level}/files/level{current_level}{'_example' if is_example else ''}.in' out")
         os.remove("main.rs")
-        with open("out") as f:
+        with open("src/out") as f:
             text = f.read()
-        os.remove("out")
+        os.remove("src/out")
         return text
         
 
