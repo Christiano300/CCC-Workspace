@@ -2,11 +2,11 @@ from io import StringIO
 import os
 import shutil
 
-def execute(mode: str, current_level: int, is_example: bool) -> str:
+def execute(mode: str, current_level: int, is_example: bool, test_num: int = 0) -> str:
     if mode == "python":
         level = __import__(f"level_{current_level}.level_{current_level}").__dict__[f"level_{current_level}"]
         out = StringIO()
-        with open(f"level_{current_level}/files/level{current_level}{'_example' if is_example else ''}.in") as f:
+        with open(f"level_{current_level}/files/level{current_level}{'_example' if is_example else '_' + str(test_num)}.in") as f:
             level.solve(f, out)
         out.flush()
         return out.getvalue()
@@ -19,7 +19,7 @@ def execute(mode: str, current_level: int, is_example: bool) -> str:
             package["main"] = f"level_{current_level}/level_{current_level}.js"
         with open("package.json", "w") as f:
             json.dump(package, f)
-        os.system(f"node . level_{current_level}/files/level{current_level}{'_example' if is_example else ''}.in out")
+        os.system(f"node . level_{current_level}/files/level{current_level}{'_example' if is_example else test_num}.in out")
         with open("out") as f:
             text = f.read()
         os.remove("out")
@@ -27,8 +27,8 @@ def execute(mode: str, current_level: int, is_example: bool) -> str:
 
     elif mode == "rust":
         shutil.copy(f"level_{current_level}/level_{current_level}.rs", "src/main.rs")
-        os.system(f"cargo run -- ../level_{current_level}/files/level{current_level}{'_example' if is_example else ''}.in' out.txt")
-        with open("src/out.txt") as f:
+        os.system(f"cargo run -- ../level_{current_level}/files/level{current_level}{'_example' if is_example else test_num}.in' out.txt")
+        with open("out.txt") as f:
             text = f.read()
         return text
         

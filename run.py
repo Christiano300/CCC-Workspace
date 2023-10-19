@@ -16,7 +16,7 @@ for i, file in enumerate(files):
     with open(
         f"level_{current_level}/out/level{current_level}_{i + 1}.out", "w"
     ) as f_out:
-        out = execute(data["mode"], current_level, False)
+        out = execute(data["mode"], current_level, False, i + 1)
         f_out.write(out)
 
 print("Terminal offenlassen!")

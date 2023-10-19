@@ -1,7 +1,7 @@
 import os
 import json
 
-mode = "rust"
+mode = "python"
 
 levels = input("Levels: ")
 levels = int(levels) if levels else 5
