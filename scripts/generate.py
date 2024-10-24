@@ -13,15 +13,15 @@ for i in range(levels):
     os.makedirs(f"level_{i + 1}/files", exist_ok=True)
     os.makedirs(f"level_{i + 1}/out", exist_ok=True)
     if mode == "python":
-        with open(f"level_{i + 1}/level_{i + 1}.py", "w") as f, open("level_x.py.template") as t:
+        with open(f"level_{i + 1}/level_{i + 1}.py", "w") as f, open("templates/level_x.py.template") as t:
             f.write(t.read())
             
     elif mode == "node":
-        with open(f"level_{i + 1}/level_{i + 1}.ts", "w") as f, open("level_x.ts.template") as t:
+        with open(f"level_{i + 1}/level_{i + 1}.ts", "w") as f, open("templates/level_x.ts.template") as t:
             f.write(t.read())
     
     elif mode == "rust":
-        with open(f"level_{i + 1}/level_{i + 1}.rs", "w") as f, open("level_x.rs.template") as t:
+        with open(f"level_{i + 1}/level_{i + 1}.rs", "w") as f, open("templates/level_x.rs.template") as t:
             f.write(t.read())
     
     else:

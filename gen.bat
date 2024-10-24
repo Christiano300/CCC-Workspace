@@ -1,1 +1,1 @@
-python generate.py
+python scripts/generate.py

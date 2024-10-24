@@ -13,9 +13,11 @@ if data["mode"] == "node":
         json.dump(data, f)
 
 files = os.listdir(f"level_{current_level}/files")
-for i, file in enumerate(files):
+print(files)
+for i, file in enumerate(sorted(files)):
     if "example" in file:
         continue
+    print(file)
     with open(
         f"level_{current_level}/out/level{current_level}_{i + 1}.out", "w"
     ) as f_out:

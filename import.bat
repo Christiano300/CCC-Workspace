@@ -1,1 +1,1 @@
-python import.py
+python scripts/import.py
