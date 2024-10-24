@@ -21,5 +21,7 @@ with open(correct_path) as correct, \
     if correct == out:
         print("\033[92;1mTestfall erfolgreich\033[0m")
     else:
+        attempt_out.write(out)
+        attempt_out.flush()
         print("\033[31;1mTestfall fehlgeschlagen\033[0m")
-        print(os.system(f"code -r --diff {correct_path} {attempt_path}"))
+        os.system(f"code -r --diff {correct_path} {attempt_path}")
