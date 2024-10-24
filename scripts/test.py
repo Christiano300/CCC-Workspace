@@ -1,5 +1,4 @@
 import json
-import subprocess
 from execute import execute
 import os
 
@@ -23,4 +22,4 @@ with open(correct_path) as correct, \
         print("\033[92;1mTestfall erfolgreich\033[0m")
     else:
         print("\033[31;1mTestfall fehlgeschlagen\033[0m")
-        print(subprocess.run(["code"], check=True))
+        print(os.system(f"code -r --diff {correct_path} {attempt_path}"))
