@@ -10,7 +10,7 @@ def execute(mode: str, current_level: int, is_example: bool, test_num: int = 0) 
         sys.path.append(f"{levelpath}")
         level = importlib.import_module(f"{levelpath}")
         out = StringIO()
-        with open(f"level_{current_level}/files/level{current_level}{'_example' if is_example else '_' + str(test_num)}.in") as f:
+        with open(f"level_{current_level}/files/level{current_level}{'_0_example' if is_example else '_' + str(test_num)}.in") as f:
             level.solve(f, out)
         out.flush()
         return out.getvalue()
